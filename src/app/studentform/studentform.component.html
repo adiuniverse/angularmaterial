@@ -1,0 +1,15 @@
+<div>
+<form [formGroup]="studentDetails">
+
+
+<input type="text" formControlName="zipCode">
+<span *ngIf="zipCodeControl?.hasError('invalidAsync')">Not Available</span>
+<span *ngIf="zipCodeControl?.valid && zipCodeControl.value? "></span>
+
+
+
+</form>
+
+
+</div>
+

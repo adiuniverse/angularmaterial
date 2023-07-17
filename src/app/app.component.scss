@@ -1,0 +1,116 @@
+$font-color:red;
+$bg-color:black;
+#div1{
+background-color: $bg-color;
+color:$font-color;
+height: 400px;
+width: 500px;
+border:1px solid;
+}
+#div2{
+    background-color: $bg-color;
+    color:$font-color ;
+    height: 300px;
+    width: 400px;
+    border: 1px solid;
+}
+
+nav{
+    ul{
+        margin: 0;
+        padding:0 ;
+        list-style: none;
+    }
+    li{
+        display: inline-block;
+        
+    }
+    a{
+        display: block;
+        text-decoration: none;
+    }
+}
+
+@mixin btn-style($bg-color:grey){
+    font-size: large;
+    background-color: $bg-color;
+    color: black;
+    height: 50px;
+    width: 200px;
+    border-radius:5px ;
+    border-color: white;
+}
+
+.warn{
+    @include btn-style($bg-color:red)
+}
+
+.primary{
+    @include btn-style($bg-color:green)
+}
+
+.info{
+    @include btn-style($bg-color:blue)
+}
+
+
+%messages{
+    width: 200px;
+    height: 100px;
+    border: 1px solid;
+
+}
+
+$data:false;
+
+.success{
+    @extend %messages;
+    color: green;
+    
+    border: 1px solid black;
+    @if $data == true{
+        visibility:hidden;
+    }
+    @else{
+        visibility: visible
+    }
+}
+
+
+
+
+.error{
+    @extend %messages;
+    border-color:red;
+    color: red;
+    @if $data ==false{
+        visibility: hidden;
+    }
+    @else{
+        visibility: visible;
+    }
+}
+
+
+@mixin heading-format(){
+    font-weight:bold ;
+    color: $font-color;
+}
+@for $i from 1 through 6
+{
+    h#{$i}{
+        @include heading-format()
+    }
+}
+
+$p: 2;
+@while $p < 5{
+    .para#{$p}{
+        color: green;
+        
+    }
+    $p: $p + 1;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
